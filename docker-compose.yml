@@ -1,0 +1,20 @@
+---
+version: '3.6'
+
+networks:
+  app-network:
+    external: true
+    name: php-app
+
+services:
+
+  web:
+    image: registry.gitlab.com/demo/php-app/site-web
+    environment:
+      APP_ENV: local
+    networks:
+      - app-network
+    ports:
+      - '3010:80'
+      - '3015:2015'
+    restart: unless-stopped
