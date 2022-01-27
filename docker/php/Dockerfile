@@ -80,7 +80,7 @@ LABEL "website.type"="website"
 RUN apk add --update nginx supervisor
 
 # Install caddy
-#COPY --from=webbuilder /hest /usr/local/bin/hest
+COPY --from=webbuilder /hest /usr/local/bin/hest
 
 # Copy needed files and configuration
 COPY docker/php/config/nginx.conf /etc/nginx/nginx.conf
@@ -90,6 +90,7 @@ COPY docker/php/config/php.ini /etc/php8/conf.d/overrides.ini
 
 COPY docker/php/config/entrypoint-web.sh /entrypoint-web.sh
 COPY docker/php/config/index.php /project/index.php
+COPY docker/php/config/Caddyfile /project/Caddyfile
 
 #COPY docker/php/config/wait-for-it.sh /usr/bin/wait-for-it
 #COPY docker/php/config/crontab /etc/crontabs/root

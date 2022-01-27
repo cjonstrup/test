@@ -1,0 +1,7 @@
+:2015
+
+root * /project
+encode zstd gzip
+file_server
+
+php_fastcgi unix//var/run/phpfpm.sock

@@ -9,7 +9,7 @@ nginx
 
 #test
 # Start caddy
-#hest run --config /project/Caddyfile
+hest run --config /project/Caddyfile
 
 # Nice way of keeping container alive while also providing logs to docker
 echo "cron.log created" > /var/log/cron.log
