@@ -89,6 +89,7 @@ COPY docker/php/config/php-fpm.conf /usr/local/etc/php-fpm.conf
 COPY docker/php/config/php.ini /etc/php8/conf.d/overrides.ini
 
 COPY docker/php/config/entrypoint-web.sh /entrypoint-web.sh
+COPY docker/php/config/index.php /project/index.php
 
 #COPY docker/php/config/wait-for-it.sh /usr/bin/wait-for-it
 #COPY docker/php/config/crontab /etc/crontabs/root
