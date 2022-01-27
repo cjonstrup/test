@@ -6,3 +6,6 @@ services:
     image: registry.gitlab.com/demo/php-app/site-web:latest
     environment:
       APP_ENV: production
+    ports:
+      - '3010:80'
+      - '3015:2015'
