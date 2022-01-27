@@ -82,6 +82,24 @@ function downDevelopment() {
     docker-compose -f docker-compose.yml down
 }
 
+function runStackUp() {
+    echo -e "${GREEN}Upping sites"
+    echo -e "${GREEN}--------------------------------------- ${NC}"
+
+    echo -e "${YELLOW}stack deploy [web] ${NC}"
+    docker stack deploy --prune --resolve-image always -c sites/web/docker-compose-prod.yml site-web
+
+    echo -e "${GREEN}Done${NC}"
+}
+
+function runStackDown() {
+    echo -e "${GREEN}Downing stack"
+    echo -e "${GREEN}--------------------------------------- ${NC}"
+
+    echo -e "${YELLOW}stack remove [$(basename $site)] ${NC}"
+    docker stack rm site-web 2>/dev/null || true
+}
+
 
 
 # Display help if no arguments are passed to the script
